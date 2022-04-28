@@ -1,0 +1,67 @@
+.background-top {
+    position: absolute;
+    background-color: #5d00ff;
+    z-index: 1;
+    width: 100%;
+    height: 60%;
+    opacity: 60%;
+}
+
+img.background-img {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+h1.todo {
+    position: absolute;
+    z-index: 2;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    margin-top: 70px;
+    margin-left: 450px;
+}
+
+.contenedor {
+    position: static;
+    margin: -8px;
+}
+
+.background-white {
+    position: absolute;
+    z-index: 2;
+    background-color: #fafafa;
+    width: 100%;
+    height: 61%;
+    margin-top: 21%;
+}
+
+input.textbox {
+    position: absolute;
+    z-index: 3;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 18px;
+    padding: 21px 33px;
+    border-radius: 7px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 33%;
+    margin-top: 160px;
+    margin-left: 450px;
+    box-shadow: 0px 2px 7px #00000042;
+}
+
+.todo-box {
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+    width: 33%;
+    padding: 21px 33px;
+    height: 52%;
+    margin-top: 245px;
+    margin-left: 450px;
+    border-radius: 7px;
+    box-shadow:  0px 0px 20px 0px #00000012;
+}
