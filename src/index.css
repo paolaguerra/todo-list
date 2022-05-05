@@ -14,7 +14,7 @@ h1.todo {
     flex-direction: column;
     align-items: center;
     margin-right: 390px;
-    padding-top: 7px;
+    padding-top: 45px;
 }
 
 .contenedor {
@@ -51,7 +51,8 @@ input.textbox {
 .contenedor-notas {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 12px;
+    margin-bottom: 27px;
 }
 
 .contenedor-input {
@@ -68,11 +69,11 @@ input.textbox {
 
 .todo-box {
     background-color: white;
-    padding: 21px 33px;
-    margin-top: 27px;
+    padding: 7px 33px;
     border-radius: 7px;
     box-shadow: 0px 2px 7px #00000042;
     flex: 1 1;
+    display: flex;
 }
 
 .text-todo {
@@ -80,4 +81,39 @@ input.textbox {
     min-width: 540px;
     display: flex;
     justify-content: center;
+}
+
+img.cross-delete {
+    display: flex;
+    height: 15px;
+}
+
+p.task-text {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    margin-left: 20px;
+}
+
+button.boton-close {
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+}
+
+img.oval {
+    display: flex;
+    height: 20px;
+    margin-top: 15px;
+}
+
+img.oval-imagen {
+    height: 20px;
+    display: flex;
+}
+
+.oval {
+    display: flex;
+    align-items: center;
 }
