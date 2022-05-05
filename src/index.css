@@ -70,10 +70,15 @@ input.textbox {
 .todo-box {
     background-color: white;
     padding: 7px 33px;
-    border-radius: 7px;
-    box-shadow: 0px 2px 7px #00000042;
+    box-shadow: 0px 2px 7px #00000012;
+    border-top: outset;
     flex: 1 1;
     display: flex;
+}
+
+.todo-box:hover button.boton-close {
+    display: flex;
+    align-items: center;
 }
 
 .text-todo {
@@ -81,11 +86,6 @@ input.textbox {
     min-width: 540px;
     display: flex;
     justify-content: center;
-}
-
-img.cross-delete {
-    display: flex;
-    height: 15px;
 }
 
 p.task-text {
@@ -96,10 +96,14 @@ p.task-text {
 }
 
 button.boton-close {
+    display: none;
     border: none;
     background: none;
+}
+
+img.cross-delete {
     display: flex;
-    align-items: center;
+    height: 15px;
 }
 
 img.oval {
@@ -113,7 +117,61 @@ img.oval-imagen {
     display: flex;
 }
 
-.oval {
+button.oval {
+    background: none;
+    border: none;
     display: flex;
     align-items: center;
+}
+
+img.check-imagen {
+    height: 20px;
+    display: flex;
+}
+
+button.boton {
+    background: none;
+    border: none;
+    font-size: 0;
+}
+
+p.btn.btn-selected {
+    text-decoration: line-through;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    margin-left: 20px;
+    color: #b5b5b5;
+    font-style: italic;
+}
+
+p.btn {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.bar {
+    max-width: 650px;
+    min-width: 540px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-bar {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    padding: 17px 33px;
+    box-shadow: 0px 2px 7px #00000012;
+    border-top: outset;
+    flex: 1 1;
+    display: flex;
+    font-size: 12px;
+    color: #898989;
 }

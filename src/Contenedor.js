@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BottomBar } from "./BottomBar";
 import "./index.css";
 import { TextBox } from "./TextBox";
 import { ToDoBox } from "./ToDoBox";
@@ -26,8 +27,15 @@ export const Contenedor = () => {
         <TextBox onSave={handleSave}></TextBox>
 
         {myNotes.map((note) => {
-          return <ToDoBox task={note.task} key={note.task} onDelete={deleteTask}></ToDoBox>;
+          return (
+            <ToDoBox
+              task={note.task}
+              key={note.task}
+              onDelete={deleteTask}
+            ></ToDoBox>
+          );
         })}
+        <BottomBar></BottomBar>
       </div>
     </>
   );
