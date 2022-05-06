@@ -4,13 +4,22 @@ import "./index.css";
 import { TextBox } from "./TextBox";
 import { ToDoBox } from "./ToDoBox";
 
+let lastId = 0;
+
 export const Contenedor = () => {
   const [myNotes, setMyNotes] = useState([]);
 
   const handleSave = (myText) => {
-    const newItem = { task: myText };
+    lastId = lastId + 1;
+
+    const newItem = {
+      task: myText,
+      id: lastId,
+    };
     const newArray = [...myNotes, newItem];
     setMyNotes(newArray);
+
+    
   };
 
   const deleteTask = (task) => {
@@ -20,6 +29,7 @@ export const Contenedor = () => {
     setMyNotes(newArray);
   };
 
+  console.log(myNotes);
   return (
     <>
       <div className="contenedor">
