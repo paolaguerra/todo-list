@@ -13,20 +13,50 @@ export const Contenedor = () => {
     lastId = lastId + 1;
 
     const newItem = {
-      task: myText,
       id: lastId,
+      task: myText,
+      checked: false,
     };
     const newArray = [...myNotes, newItem];
     setMyNotes(newArray);
-
-    
   };
 
-  const deleteTask = (task) => {
+  const deleteNote = (id) => {
     const newArray = myNotes.filter((note) => {
-      return note.task !== task;
+      return note.id !== id;
     });
     setMyNotes(newArray);
+  };
+
+  const editNote = (id, newProps) => {
+    // 1. Search for note:
+    let indexFound;
+    let noteFound = myNotes.find((note, index) => {
+      if (note.id === id) {
+        indexFound = index;
+        return true;
+      }
+      return false;
+    });
+
+    // 2. Verify if found and has a value:
+    if (noteFound !== undefined && noteFound !== null) {
+      // 3. Note found and with a value.
+      noteFound = { ...noteFound, ...newProps };
+
+      // 4. Create array to overwrite the old one:
+      const newArray = [...myNotes];
+
+      // 5. Remove the old item, and add the updated one instead:
+      newArray.splice(indexFound, 1, noteFound);
+
+      // Only update if I found the note:
+      setMyNotes(newArray);
+    }
+  };
+
+  const getPendingNotesCounter = () => {
+    return 5;
   };
 
   console.log(myNotes);
@@ -39,13 +69,14 @@ export const Contenedor = () => {
         {myNotes.map((note) => {
           return (
             <ToDoBox
-              task={note.task}
+              note={note}
               key={note.task}
-              onDelete={deleteTask}
+              onEdit={editNote}
+              onDelete={deleteNote}
             ></ToDoBox>
           );
         })}
-        <BottomBar></BottomBar>
+        <BottomBar count={getPendingNotesCounter()} />
       </div>
     </>
   );

@@ -8,15 +8,25 @@ export const ToDoBox = (props) => {
   const [ovalSeleccionado, setOvalSeleccionado] = useState("oval");
 
   const borrar = (event) => {
-    props.onDelete(props.task);
+    props.onDelete(props.note.id);
   };
 
   const checkMark = (event) => {
     setOvalSeleccionado("oval");
+
+    const newPropsForNote = {
+      checked: true,
+    };
+    props.onEdit(props.note.id, newPropsForNote);
   };
 
   const checkOval = (event) => {
     setOvalSeleccionado("check");
+
+    const newPropsForNote = {
+      checked: true,
+    };
+    props.onEdit(props.note.id, newPropsForNote);
   };
 
   let checkCSSClass = "btn";
@@ -43,7 +53,7 @@ export const ToDoBox = (props) => {
             )}
           </div>
 
-          <p className={checkCSSClass}>{props.task}</p>
+          <p className={checkCSSClass}>{props.note.task}</p>
 
           <button className="boton-close" onClick={borrar}>
             <img className="cross-delete" alt="cross" src={cross}></img>
@@ -55,5 +65,11 @@ export const ToDoBox = (props) => {
 };
 
 ToDoBox.propTypes = {
-  task: PropTypes.string,
+  note: PropTypes.shape({
+    id: PropTypes.number,
+    checked: PropTypes.bool,
+    task: PropTypes.string,
+  }),
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
 };
