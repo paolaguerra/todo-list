@@ -5,7 +5,15 @@ import oval from "./img/oval.png";
 import check from "./img/check.png";
 
 export const ToDoBox = (props) => {
-  const [ovalSeleccionado, setOvalSeleccionado] = useState("oval");
+  let initialOvalSeleccionadoValue;
+  if (props.note.checked === true) {
+    initialOvalSeleccionadoValue = "check";
+  } else {
+    initialOvalSeleccionadoValue = "oval";
+  }
+  const [ovalSeleccionado, setOvalSeleccionado] = useState(
+    initialOvalSeleccionadoValue
+  );
 
   const borrar = (event) => {
     props.onDelete(props.note.id);

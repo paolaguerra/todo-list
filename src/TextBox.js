@@ -10,7 +10,7 @@ export const TextBox = (props) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       props.onSave(myText);
-      setmyText('');
+      setmyText("");
     }
   };
 
@@ -24,6 +24,7 @@ export const TextBox = (props) => {
           value={myText}
           onChange={cambiosDelInput}
           onKeyDown={handleKeyDown}
+          autoFocus
         ></input>
       </div>
     </div>

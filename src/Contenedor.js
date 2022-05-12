@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BottomBar } from "./BottomBar";
-import "./index.css";
 import { TextBox } from "./TextBox";
 import { ToDoBox } from "./ToDoBox";
+import "./index.css";
 
 let lastId = 0;
 
@@ -125,13 +125,18 @@ export const Contenedor = () => {
             ></ToDoBox>
           );
         })}
-        <BottomBar
-          onAll={allTasks}
-          onActive={activeTasksOnly}
-          onDelete={deleteNotesChecked}
-          onComplete={showCompleteTasks}
-          count={getPendingNotesCounter()}
-        />
+        {myNotes.length >= 1 && (
+          <div>
+            <BottomBar
+              focus={activeFilter}
+              onAll={allTasks}
+              onActive={activeTasksOnly}
+              onDelete={deleteNotesChecked}
+              onComplete={showCompleteTasks}
+              count={getPendingNotesCounter()}
+            />
+          </div>
+        )}
       </div>
     </>
   );

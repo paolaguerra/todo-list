@@ -174,7 +174,7 @@ p.btn {
     justify-content: space-between;
 }
 
-button.all-active-comp {
+button.btn {
     font-family: 'Roboto', sans-serif;
     border: none;
     background: none;
@@ -191,14 +191,8 @@ button.tasks-left, .clear-complete {
     background: none;
 }
 
-button.all-active-comp:hover {
-    color:#f8bb4f;
+button.btn-selected {
+    color: #ffa24b;
 }
 
-button.clear-complete:hover {
-    color:#242424;
-}
 
-button.all-active-comp:focus {
-    color:#f8bb4f;
-}
