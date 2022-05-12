@@ -15,7 +15,7 @@ export const ToDoBox = (props) => {
     setOvalSeleccionado("oval");
 
     const newPropsForNote = {
-      checked: true,
+      checked: false,
     };
     props.onEdit(props.note.id, newPropsForNote);
   };

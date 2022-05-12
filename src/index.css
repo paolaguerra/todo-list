@@ -165,13 +165,40 @@ p.btn {
 }
 
 .text-bar {
-    font-family: 'Roboto', sans-serif;
     background-color: white;
     padding: 17px 33px;
     box-shadow: 0px 2px 7px #00000012;
     border-top: outset;
     flex: 1 1;
     display: flex;
+    justify-content: space-between;
+}
+
+button.all-active-comp {
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    background: none;
+    display: flex;
+    color: #898989;
+    font-weight: bold;
+}
+
+button.tasks-left, .clear-complete {
     font-size: 12px;
     color: #898989;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    background: none;
+}
+
+button.all-active-comp:hover {
+    color:#f8bb4f;
+}
+
+button.clear-complete:hover {
+    color:#242424;
+}
+
+button.all-active-comp:focus {
+    color:#f8bb4f;
 }

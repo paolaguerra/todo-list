@@ -8,6 +8,7 @@ let lastId = 0;
 
 export const Contenedor = () => {
   const [myNotes, setMyNotes] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("All"); // All, Active y Complete
 
   const handleSave = (myText) => {
     lastId = lastId + 1;
@@ -26,6 +27,25 @@ export const Contenedor = () => {
       return note.id !== id;
     });
     setMyNotes(newArray);
+  };
+
+  const deleteNotesChecked = () => {
+    const newArray = myNotes.filter((note) => {
+      return note.checked === false;
+    });
+    setMyNotes(newArray);
+  };
+
+  const showCompleteTasks = () => {
+    setActiveFilter("Complete");
+  };
+
+  const activeTasksOnly = () => {
+    setActiveFilter("Active");
+  };
+
+  const allTasks = () => {
+    setActiveFilter("All");
   };
 
   const editNote = (id, newProps) => {
@@ -56,27 +76,62 @@ export const Contenedor = () => {
   };
 
   const getPendingNotesCounter = () => {
-    return 5;
+    const myFilteredArray = myNotes.filter((note) => note.checked === false);
+
+    return myFilteredArray.length;
   };
 
-  console.log(myNotes);
+  let filteredNotes;
+
+  if (activeFilter === "Active") {
+    filteredNotes = myNotes.filter((note) => {
+      if (note.checked === false) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  if (activeFilter === "Complete") {
+    filteredNotes = myNotes.filter((note) => {
+      if (note.checked === true) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  if (activeFilter === "All") {
+    filteredNotes = [...myNotes];
+  }
+
+  console.log(filteredNotes);
+
   return (
     <>
       <div className="contenedor">
         <h1 className="todo"> T O D O</h1>
         <TextBox onSave={handleSave}></TextBox>
 
-        {myNotes.map((note) => {
+        {filteredNotes.map((note) => {
           return (
             <ToDoBox
               note={note}
-              key={note.task}
+              key={note.id}
               onEdit={editNote}
               onDelete={deleteNote}
             ></ToDoBox>
           );
         })}
-        <BottomBar count={getPendingNotesCounter()} />
+        <BottomBar
+          onAll={allTasks}
+          onActive={activeTasksOnly}
+          onDelete={deleteNotesChecked}
+          onComplete={showCompleteTasks}
+          count={getPendingNotesCounter()}
+        />
       </div>
     </>
   );
