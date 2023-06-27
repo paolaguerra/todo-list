@@ -112,7 +112,7 @@ export const Contenedor = () => {
   return (
     <>
       <div className="contenedor">
-        <h1 className="todo"> T O D O</h1>
+        <h1 className="todo">Start your To-do List here </h1>
         <TextBox onSave={handleSave}></TextBox>
 
         {filteredNotes.map((note) => {
